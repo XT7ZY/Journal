@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Student>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Список учеников: @ViewData["clas"]</h1>
+
+<div class="conrainer p-3 "> 
+    <div class="row pt-4">
+        <div class=" col-6">
+        <a class="btn btn-primary" asp-controller="Class" asp-action="Index"> 
+            <i class="bi bi-arrow-left"></i> &nbsp; Назад
+        </a>
+        </div>
+        <div class=" col-6 text-end">
+          <p align="right"> 
+              <b>Учитель:</b> @ViewData["teacher"]
+          </p>
+        </div>
+    </div>
+    &nbsp;
+<table class="table table-bordered table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th> 
+                Фамилия
+            </th>
+            <th> 
+                Имя
+            </th>
+            <th> 
+                Отчество
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td width="25%"> 
+                    @obj.LastName
+                </td>
+                <td width="38%"> 
+                    @obj.Name
+                </td>
+                 <td width="37%"> 
+                    @obj.SurName
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Role" asp-action="Admin" class="w-100 btn btn-secondary btn-lg">Назад к администрированию</a>
+</div>

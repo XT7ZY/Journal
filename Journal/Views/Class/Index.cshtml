@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Class>   
+@{
+    ViewData["Title"] = "Список классов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Список классов</h1>
+
+<div class="conrainer p-3 "> 
+    <div class="row pt-4">
+        <div class=" col-6">
+        <a class="btn btn-primary" asp-controller="Class" asp-action="Create"> 
+            <i class="bi bi-plus-circle"></i> &nbsp; Создать новый класс
+        </a>
+        </div>
+        <div class=" col-6 text-end">
+        </div>
+    </div>
+    &nbsp;
+<table class="table table-bordered table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th> 
+                Класс
+            </th>
+            <th> 
+                Учитель
+            </th>
+            <th> 
+                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td width="50%"> 
+                <a class="btn" asp-controller="Class" asp-action="Info" asp-route-id="@obj.Id" > 
+            <i class=""></i>@obj.Number"@obj.Letter"
+                </a>
+                </td>
+                <td width="45">
+                    @obj.Teacher.LastName @obj.Teacher.Name @obj.Teacher.SurName
+                </td>
+                <td width="5">
+                   <a class="btn btn-primary" asp-action ="Delete" asp-route-id="@obj.Id" > 
+                   Delete
+                   </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Role" asp-action="Admin" class="w-100 btn btn-secondary btn-lg">Назад к администрированию</a>
+</div>

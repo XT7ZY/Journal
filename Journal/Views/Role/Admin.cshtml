@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Страница Администратора";
+}
+<div class="text-center">
+    <h1 class="display-4">Панель Администрирования</h1
+</div>
+<div>
+         @if (User.IsInRole("Administrator"))
+        {
+        <a class="w-100 btn-lg btn btn-secondary" id="register" asp-area="Identity" asp-page="/Account/Register">Регистарция нового пользователя</a>
+        }
+</div>
+&nbsp;
+<div>
+         @if (User.IsInRole("Administrator"))
+        {
+        <a class="w-100 btn-lg btn btn-secondary" id="register" asp-controller="User" asp-action="UserList">Список пользователей</a>
+        }
+</div>
+&nbsp;
+ <div class="col-12 ">
+ <a class="w-100 btn-lg btn btn-primary"  asp-controller="Class" asp-action="Index">
+ Список классов
+</a>
+</div>
+&nbsp;
+<div class="col-12 ">
+     <a class="w-100 btn-lg btn btn-primary"  asp-controller="Teachers" asp-action="Index" >
+ Список учителей
+</a>
+</div>
+&nbsp;
+<a class="w-100 btn-lg btn btn-primary"  asp-controller="Parent" asp-action="Index" >
+ Список родителей
+</a>
+&nbsp;
+<a class="w-100 btn-lg btn btn-primary"  asp-controller="Student" asp-action="StudentList" >
+ Список учеников
+</a>
+&nbsp;
+ <a class="w-100 btn-lg btn btn-primary"  asp-controller="Role" asp-action="Admin">
+ Список предметов
+</a>
+

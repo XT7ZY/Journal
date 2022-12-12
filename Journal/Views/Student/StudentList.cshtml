@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Student>
+@{
+    ViewData["Title"] = "StudentList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Список учениов</h1>
+    <div class="row pt-4">
+        <div class=" col-6">
+        <a class="btn btn-primary" asp-controller="Student" asp-action="Create"> 
+            <i class="bi bi-plus-circle"></i> &nbsp; Создать нового ученика
+        </a>
+        </div>
+        <div class=" col-6 text-end">
+        </div>
+    </div>
+    &nbsp;
+<table class="table table-bordered table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th> 
+                Имя
+            </th>
+            <th> 
+                Фаилия
+            </th>
+            <th> 
+                Отчество
+            </th>
+            <th> 
+                Родитель
+            </th>
+            <th> 
+                Класс
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in @Model)
+        {
+            <tr>
+                <td width="20%"> 
+                    @obj.Name
+                </td>
+                <td width="20">
+                    @obj.LastName
+                </td>
+                <td width="20%"> 
+                    @obj.SurName
+                </td>
+                <td width="30%"> 
+                   1
+                </td>
+                <td width="10%"> 
+                    @obj.Parent.Name
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Role" asp-action="Admin" class="w-100 btn btn-secondary btn-lg">Назад к администрированию</a>

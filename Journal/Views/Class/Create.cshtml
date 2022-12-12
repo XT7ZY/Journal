@@ -1,0 +1,65 @@
+﻿@model Class
+@{
+    ViewData["Title"] = "Создать класс";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="row pb-2">
+        <h3 class=" text-primary">Создать класс</h3>
+    </div>
+
+
+  <main>
+
+    <div class="row g-5">
+      <div class="col-md-7 col-lg-8">
+        <form method="post" class="needs-validation" novalidate="">
+          <div class="row g-3">
+
+
+            <div class="col-md-5">
+              <select  asp-for="Number"  class="form-select">
+                <option selected="selected" disabled="disabled">*Выберите номер класса*</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+              </select>
+            </div>
+
+
+            <div class="col-md-4">
+              <select  asp-for="Letter"  class="form-select">
+                <option selected="selected" disabled="disabled">*Выберите букву класса*</option>
+                <option>А</option>
+                <option>Б</option>
+                <option>В</option>
+                <option>Г</option>
+              </select>
+            </div>
+            
+             <div class="col-md-5">
+              <select  asp-for="TeacherId" class="form-select" 
+              asp-items="ViewBag.TeacherSelectList"> 
+                <option selected="selected" disabled="disabled">*Выберите учителя*</option>
+                </select>
+            </div>
+
+          </div>
+          &nbsp;
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Создать</button>
+          &nbsp;
+          <a asp-controller="Class" asp-action="Index" class="w-100 btn btn-secondary btn-lg">Назад к классам</a>
+        </form>
+      </div>
+    </div>
+  </main>
+
+

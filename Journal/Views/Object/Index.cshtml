@@ -1,0 +1,41 @@
+﻿@using Journal.Models.Object
+@model IEnumerable<Models.Object>
+@{
+    ViewData["Title"] = "Список предметов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Список предметов</h1>
+
+<div class="conrainer p-3 "> 
+    <div class="row pt-4">
+        <div class=" col-6">
+        <a class="btn btn-primary" asp-controller="Teachers" asp-action="Create"> 
+            <i class="bi bi-plus-circle"></i> &nbsp; Создать новый предмет
+        </a>
+        </div>
+        <div class=" col-6 text-end">
+        </div>
+    </div>
+    &nbsp;
+<table class="table table-bordered table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th> 
+                Название предмета
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in @Model)
+        {
+            <tr>
+                <td width="100%"> 
+                    @obj.Name
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Role" asp-action="Admin" class="w-100 btn btn-secondary btn-lg">Назад к администрированию</a>
+</div>
