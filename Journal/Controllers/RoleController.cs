@@ -8,13 +8,16 @@ namespace Journal.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         [Authorize(Roles = $"{Constants.Roles.Administrator}")]
         public IActionResult Admin()
         {
+            ViewData["Title"] = "Страница Администратора";
+            ViewData["Message"] = "Hello!";
             return View();
         }
+
     }
 }

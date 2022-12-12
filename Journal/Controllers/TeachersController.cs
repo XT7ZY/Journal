@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Journal.Areas.Identity.Data;
 using Journal.Core;
 using Journal.Models;
-
+using Journal.Core.Repositories;
 
 namespace Journal.Controllers
 {
